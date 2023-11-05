@@ -22,7 +22,7 @@ class TableViewCellWithText: UITableViewCell {
         return imageView
     }()
 
-    private lazy var cellTextLabel: UILabel = {
+     private lazy var cellTextLabel: UILabel = {
         var label = UILabel()
         label.text = "Off"
         label.font = .systemFont(ofSize: 22)

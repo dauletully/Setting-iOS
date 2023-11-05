@@ -71,6 +71,12 @@ extension TableViewController: UITableViewDataSource, UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
         let model = settings[indexPath.section][indexPath.row]
+
+        if indexPath != [0, 0] {
+            let detailVC = DetailView()
+            detailVC.model = model.title
+            navigationController?.pushViewController(detailVC, animated: true)
+        }
         print("Pressed cell: \(model.title)")
     }
 }

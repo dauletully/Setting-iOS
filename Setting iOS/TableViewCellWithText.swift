@@ -2,7 +2,7 @@ import UIKit
 import SnapKit
 
 
-class CustomTableViewCell: UITableViewCell {
+class TableViewCellWithText: UITableViewCell {
     //MARK: - UI elements
     private lazy var titleLabel: UILabel = {
         let label = UILabel()
@@ -22,6 +22,15 @@ class CustomTableViewCell: UITableViewCell {
         return imageView
     }()
 
+    private lazy var cellTextLabel: UILabel = {
+        var label = UILabel()
+        label.text = "Off"
+        label.font = .systemFont(ofSize: 22)
+        label.font = .preferredFont(forTextStyle: .body)
+        label.textColor = .systemGray
+        return label
+    }()
+
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
 
@@ -36,6 +45,7 @@ class CustomTableViewCell: UITableViewCell {
     private func setupViews(){
         contentView.addSubview(iconImageView)
         contentView.addSubview(titleLabel)
+        contentView.addSubview(cellTextLabel)
     }
 
     private func setupConstraints(){
@@ -49,6 +59,10 @@ class CustomTableViewCell: UITableViewCell {
             make.left.equalTo(iconImageView.snp.right).offset(16)
             make.centerY.equalTo(iconImageView.snp.centerY)
         }
+        cellTextLabel.snp.makeConstraints { make in
+            make.centerY.equalTo(iconImageView.snp.centerY)
+            make.trailing.equalTo(contentView).offset(-15)
+        }
     }
 
     //MARK: - Filling container function
@@ -59,29 +73,9 @@ class CustomTableViewCell: UITableViewCell {
         imageView.contentMode = .center
         iconImageView.addSubview(imageView)
         titleLabel.text = title
-        switch title {
-        case "Airplane mode":
-            iconImageView.backgroundColor = .systemYellow
-        case "Cellular":
-            iconImageView.backgroundColor = .systemGreen
-        case "Personal Hotstop":
-            iconImageView.backgroundColor = .systemGreen
-        case "Notifications":
-            iconImageView.backgroundColor = .systemRed
-        case "Sounds & Haptics":
-            iconImageView.backgroundColor = .systemRed
-        case "Focus":
-            iconImageView.backgroundColor = .systemPurple
-        case "Screen Time":
-            iconImageView.backgroundColor = .systemPurple
-        case "General":
-            iconImageView.backgroundColor = .systemGray
-        case "Control Center":
-            iconImageView.backgroundColor = .systemGray
-        case "Emergency SOS":
-            iconImageView.backgroundColor = .systemRed
-        default:
-            iconImageView.backgroundColor = .systemBlue
+        iconImageView.backgroundColor = .systemBlue
+        if title == "Bluetooth" {
+            cellTextLabel.text = "Non connected"
         }
     }
 }

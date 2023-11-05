@@ -2,7 +2,7 @@ import UIKit
 import SnapKit
 
 
-class CustomTableViewCell: UITableViewCell {
+class TableViewCellWithSwitch: UITableViewCell {
     //MARK: - UI elements
     private lazy var titleLabel: UILabel = {
         let label = UILabel()
@@ -22,6 +22,12 @@ class CustomTableViewCell: UITableViewCell {
         return imageView
     }()
 
+    private lazy var switchElement: UISwitch = {
+        let switcher = UISwitch()
+        switcher.setOn(false, animated: true)
+        return switcher
+    }()
+
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
 
@@ -36,6 +42,7 @@ class CustomTableViewCell: UITableViewCell {
     private func setupViews(){
         contentView.addSubview(iconImageView)
         contentView.addSubview(titleLabel)
+        contentView.addSubview(switchElement)
     }
 
     private func setupConstraints(){
@@ -49,6 +56,11 @@ class CustomTableViewCell: UITableViewCell {
             make.left.equalTo(iconImageView.snp.right).offset(16)
             make.centerY.equalTo(iconImageView.snp.centerY)
         }
+        switchElement.snp.makeConstraints { make in
+            make.centerY.equalTo(iconImageView)
+            make.right.equalTo(contentView).offset(-25)
+            make.height.equalTo(30)
+        }
     }
 
     //MARK: - Filling container function
@@ -59,28 +71,9 @@ class CustomTableViewCell: UITableViewCell {
         imageView.contentMode = .center
         iconImageView.addSubview(imageView)
         titleLabel.text = title
-        switch title {
-        case "Airplane mode":
+        if title == "Airplane mode" {
             iconImageView.backgroundColor = .systemYellow
-        case "Cellular":
-            iconImageView.backgroundColor = .systemGreen
-        case "Personal Hotstop":
-            iconImageView.backgroundColor = .systemGreen
-        case "Notifications":
-            iconImageView.backgroundColor = .systemRed
-        case "Sounds & Haptics":
-            iconImageView.backgroundColor = .systemRed
-        case "Focus":
-            iconImageView.backgroundColor = .systemPurple
-        case "Screen Time":
-            iconImageView.backgroundColor = .systemPurple
-        case "General":
-            iconImageView.backgroundColor = .systemGray
-        case "Control Center":
-            iconImageView.backgroundColor = .systemGray
-        case "Emergency SOS":
-            iconImageView.backgroundColor = .systemRed
-        default:
+        } else {
             iconImageView.backgroundColor = .systemBlue
         }
     }

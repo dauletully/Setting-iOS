@@ -9,21 +9,26 @@
 /* Begin PBXBuildFile section */
 		37D54C072AF641E500A0DA18 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37D54C062AF641E500A0DA18 /* AppDelegate.swift */; };
 		37D54C092AF641E500A0DA18 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37D54C082AF641E500A0DA18 /* SceneDelegate.swift */; };
-		37D54C0B2AF641E500A0DA18 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37D54C0A2AF641E500A0DA18 /* ViewController.swift */; };
 		37D54C0E2AF641E500A0DA18 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 37D54C0C2AF641E500A0DA18 /* Main.storyboard */; };
 		37D54C102AF641E600A0DA18 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 37D54C0F2AF641E600A0DA18 /* Assets.xcassets */; };
 		37D54C132AF641E600A0DA18 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 37D54C112AF641E600A0DA18 /* LaunchScreen.storyboard */; };
+		37D54C1B2AF6443A00A0DA18 /* TableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37D54C1A2AF6443A00A0DA18 /* TableViewController.swift */; };
+		37D54C1E2AF6448E00A0DA18 /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = 37D54C1D2AF6448E00A0DA18 /* SnapKit */; };
+		37D54C202AF647E000A0DA18 /* CustomTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37D54C1F2AF647E000A0DA18 /* CustomTableViewCell.swift */; };
+		37D54C222AF6717F00A0DA18 /* Models.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37D54C212AF6717F00A0DA18 /* Models.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		37D54C032AF641E500A0DA18 /* Setting iOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Setting iOS.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		37D54C062AF641E500A0DA18 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		37D54C082AF641E500A0DA18 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		37D54C0A2AF641E500A0DA18 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		37D54C0D2AF641E500A0DA18 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		37D54C0F2AF641E600A0DA18 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		37D54C122AF641E600A0DA18 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		37D54C142AF641E600A0DA18 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		37D54C1A2AF6443A00A0DA18 /* TableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableViewController.swift; sourceTree = "<group>"; };
+		37D54C1F2AF647E000A0DA18 /* CustomTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTableViewCell.swift; sourceTree = "<group>"; };
+		37D54C212AF6717F00A0DA18 /* Models.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Models.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -31,6 +36,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				37D54C1E2AF6448E00A0DA18 /* SnapKit in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -58,11 +64,13 @@
 			children = (
 				37D54C062AF641E500A0DA18 /* AppDelegate.swift */,
 				37D54C082AF641E500A0DA18 /* SceneDelegate.swift */,
-				37D54C0A2AF641E500A0DA18 /* ViewController.swift */,
+				37D54C1A2AF6443A00A0DA18 /* TableViewController.swift */,
 				37D54C0C2AF641E500A0DA18 /* Main.storyboard */,
 				37D54C0F2AF641E600A0DA18 /* Assets.xcassets */,
 				37D54C112AF641E600A0DA18 /* LaunchScreen.storyboard */,
 				37D54C142AF641E600A0DA18 /* Info.plist */,
+				37D54C1F2AF647E000A0DA18 /* CustomTableViewCell.swift */,
+				37D54C212AF6717F00A0DA18 /* Models.swift */,
 			);
 			path = "Setting iOS";
 			sourceTree = "<group>";
@@ -83,6 +91,9 @@
 			dependencies = (
 			);
 			name = "Setting iOS";
+			packageProductDependencies = (
+				37D54C1D2AF6448E00A0DA18 /* SnapKit */,
+			);
 			productName = "Setting iOS";
 			productReference = 37D54C032AF641E500A0DA18 /* Setting iOS.app */;
 			productType = "com.apple.product-type.application";
@@ -111,6 +122,9 @@
 				Base,
 			);
 			mainGroup = 37D54BFA2AF641E500A0DA18;
+			packageReferences = (
+				37D54C1C2AF6448E00A0DA18 /* XCRemoteSwiftPackageReference "SnapKit" */,
+			);
 			productRefGroup = 37D54C042AF641E500A0DA18 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -138,9 +152,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				37D54C0B2AF641E500A0DA18 /* ViewController.swift in Sources */,
+				37D54C202AF647E000A0DA18 /* CustomTableViewCell.swift in Sources */,
 				37D54C072AF641E500A0DA18 /* AppDelegate.swift in Sources */,
 				37D54C092AF641E500A0DA18 /* SceneDelegate.swift in Sources */,
+				37D54C1B2AF6443A00A0DA18 /* TableViewController.swift in Sources */,
+				37D54C222AF6717F00A0DA18 /* Models.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -216,7 +232,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 15.4;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -270,7 +286,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 15.4;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;
@@ -358,6 +374,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		37D54C1C2AF6448E00A0DA18 /* XCRemoteSwiftPackageReference "SnapKit" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/SnapKit/SnapKit.git";
+			requirement = {
+				branch = develop;
+				kind = branch;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		37D54C1D2AF6448E00A0DA18 /* SnapKit */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 37D54C1C2AF6448E00A0DA18 /* XCRemoteSwiftPackageReference "SnapKit" */;
+			productName = SnapKit;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 37D54BFB2AF641E500A0DA18 /* Project object */;
 }

@@ -1,10 +1,21 @@
+//
+//  SettingView.swift
+//  Setting iOS
+//
+//  Created by Dinmukhammed Begaly on 25.11.2023.
+//
+
 import UIKit
 import SnapKit
 
-class TableViewController: UIViewController {
-    //MARK: - UI elemnts
-    private lazy var settings = SettingOptions.options
-    private lazy var models = [SettingOptions]()
+protocol SettingViewDelegate: AnyObject {
+    func settingOption(setting: SettingOptions)
+}
+
+class TableView: UIView {
+    //MARK: UI elements
+    private lazy var models: [[SettingOptions]] = []
+    weak var delegate: SettingViewDelegate?
 
     private lazy var tableView: UITableView = {
         let tableView = UITableView(frame: .zero, style: .grouped)
@@ -17,17 +28,18 @@ class TableViewController: UIViewController {
         return tableView
     }()
 
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        title = "Settings"
+    override init(frame: CGRect) {
+        super.init(frame: frame)
         setupViews()
         setupConstraints()
     }
 
-//MARK: - Setup functions
+       required init?(coder: NSCoder) {
+           fatalError("init(coder:) has not been implemented")
+       }
+
     private func setupViews(){
-        view.addSubview(tableView)
-        view.backgroundColor = .systemBackground
+        addSubview(tableView)
     }
 
     private func setupConstraints(){
@@ -35,47 +47,52 @@ class TableViewController: UIViewController {
             make.edges.equalToSuperview()
         }
     }
+    public func configureView(setting: [[SettingOptions]]) {
+        models = setting
+    }
+
 }
 
-extension TableViewController: UITableViewDataSource, UITableViewDelegate {
+extension TableView: UITableViewDelegate, UITableViewDataSource {
     func numberOfSections(in tableView: UITableView) -> Int {
-        return settings.count
+        return models.count
     }
 
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return settings[section].count
+        return models[section].count
     }
 
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
 
-        let model = settings[indexPath.section][indexPath.row]
-        
+        let model = models[indexPath.section][indexPath.row]
+
         if model.title == "Airplane mode" || model.title == "VPN" {
             let cellWithSwitch = tableView.dequeueReusableCell(withIdentifier: "cellSwitch_id", for: indexPath) as? TableViewCellWithSwitch
             cellWithSwitch?.configure(image: model.iconImage, title: model.title, color: .systemYellow)
             return cellWithSwitch ?? UITableViewCell()
-        } else if model.title == "Bluetooth" || model.title == "Wi-Fi" {
+        }
+
+        if model.title == "Bluetooth" || model.title == "Wi-Fi" {
             let cellWithText = tableView.dequeueReusableCell(withIdentifier: "cellText_id", for: indexPath) as? TableViewCellWithText
             cellWithText?.configure(image: model.iconImage, title: model.title, color: .blue)
             cellWithText?.accessoryType = .disclosureIndicator
             return cellWithText ?? UITableViewCell()
         }
-        else {
-            let cell = tableView.dequeueReusableCell(withIdentifier: "cell_id") as? CustomTableViewCell
-            cell?.configure(image: model.iconImage, title: model.title, color: .blue)
-            cell?.accessoryType = .disclosureIndicator
-            return cell ?? UITableViewCell()
-        }
+
+        let cell = tableView.dequeueReusableCell(withIdentifier: "cell_id") as? CustomTableViewCell
+        cell?.configure(image: model.iconImage, title: model.title, color: .blue)
+        cell?.accessoryType = .disclosureIndicator
+        return cell ?? UITableViewCell()
+
     }
+
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
-        let model = settings[indexPath.section][indexPath.row]
+        let model = models[indexPath.section][indexPath.row]
 
         if indexPath != [0, 0] {
-            let detailVC = DetailView()
-            detailVC.model = model.title
-            navigationController?.pushViewController(detailVC, animated: true)
+            delegate?.settingOption(setting: model)
         }
         print("Pressed cell: \(model.title)")
     }

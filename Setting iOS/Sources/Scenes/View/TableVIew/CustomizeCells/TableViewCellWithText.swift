@@ -16,7 +16,6 @@ class TableViewCellWithText: UITableViewCell {
         let imageView = UIImageView()
         imageView.backgroundColor = .systemBlue
         imageView.clipsToBounds = true
-        imageView.layer.cornerRadius = 7
         imageView.tintColor = .white
         imageView.contentMode = .center
         return imageView
@@ -41,6 +40,13 @@ class TableViewCellWithText: UITableViewCell {
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
+
+    override func layoutSubviews() {
+        super.layoutSubviews()
+
+        iconImageView.layer.cornerRadius = 7
+    }
+    
 //MARK: - Setup functions
     private func setupViews(){
         contentView.addSubview(iconImageView)
@@ -51,7 +57,7 @@ class TableViewCellWithText: UITableViewCell {
     private func setupConstraints(){
         iconImageView.snp.makeConstraints { make in
             make.centerY.equalToSuperview()
-            make.left.equalTo(contentView).offset(20)
+            make.left.equalToSuperview().offset(20)
             make.height.equalTo(35)
             make.width.equalTo(35)
         }
@@ -61,17 +67,13 @@ class TableViewCellWithText: UITableViewCell {
         }
         cellTextLabel.snp.makeConstraints { make in
             make.centerY.equalTo(iconImageView.snp.centerY)
-            make.trailing.equalTo(contentView).offset(-15)
+            make.trailing.equalToSuperview().offset(-15)
         }
     }
 
     //MARK: - Filling container function
     public func configure(image: UIImage?, title: String, color: UIColor) {
-        let imageView = UIImageView(frame: CGRect(x: 0, y: 0, width: 35, height: 35))
-        imageView.image = image
-        imageView.clipsToBounds = true
-        imageView.contentMode = .center
-        iconImageView.addSubview(imageView)
+        iconImageView.image = image
         titleLabel.text = title
         iconImageView.backgroundColor = .systemBlue
         if title == "Bluetooth" {

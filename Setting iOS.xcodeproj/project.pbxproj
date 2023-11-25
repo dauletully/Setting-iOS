@@ -15,10 +15,12 @@
 		37D54C0E2AF641E500A0DA18 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 37D54C0C2AF641E500A0DA18 /* Main.storyboard */; };
 		37D54C102AF641E600A0DA18 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 37D54C0F2AF641E600A0DA18 /* Assets.xcassets */; };
 		37D54C132AF641E600A0DA18 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 37D54C112AF641E600A0DA18 /* LaunchScreen.storyboard */; };
-		37D54C1B2AF6443A00A0DA18 /* TableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37D54C1A2AF6443A00A0DA18 /* TableViewController.swift */; };
+		37D54C1B2AF6443A00A0DA18 /* TableController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37D54C1A2AF6443A00A0DA18 /* TableController.swift */; };
 		37D54C1E2AF6448E00A0DA18 /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = 37D54C1D2AF6448E00A0DA18 /* SnapKit */; };
 		37D54C202AF647E000A0DA18 /* CustomTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37D54C1F2AF647E000A0DA18 /* CustomTableViewCell.swift */; };
 		37D54C222AF6717F00A0DA18 /* Models.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37D54C212AF6717F00A0DA18 /* Models.swift */; };
+		37F1BF742B125FE70058E47C /* TableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37F1BF732B125FE70058E47C /* TableView.swift */; };
+		37F1BF762B1265CE0058E47C /* DetailController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37F1BF752B1265CE0058E47C /* DetailController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -32,9 +34,11 @@
 		37D54C0F2AF641E600A0DA18 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		37D54C122AF641E600A0DA18 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		37D54C142AF641E600A0DA18 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		37D54C1A2AF6443A00A0DA18 /* TableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableViewController.swift; sourceTree = "<group>"; };
+		37D54C1A2AF6443A00A0DA18 /* TableController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableController.swift; sourceTree = "<group>"; };
 		37D54C1F2AF647E000A0DA18 /* CustomTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTableViewCell.swift; sourceTree = "<group>"; };
 		37D54C212AF6717F00A0DA18 /* Models.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Models.swift; sourceTree = "<group>"; };
+		37F1BF732B125FE70058E47C /* TableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableView.swift; sourceTree = "<group>"; };
+		37F1BF752B1265CE0058E47C /* DetailController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -49,14 +53,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		37945D5E2AF7BBC400BDD522 /* Customize TableViews */ = {
+		37945D5E2AF7BBC400BDD522 /* CustomizeCells */ = {
 			isa = PBXGroup;
 			children = (
 				37D54C1F2AF647E000A0DA18 /* CustomTableViewCell.swift */,
 				37945D582AF79CB600BDD522 /* TableViewCellWithSwitch.swift */,
 				37945D5A2AF7A6AC00BDD522 /* TableViewCellWithText.swift */,
 			);
-			path = "Customize TableViews";
+			path = CustomizeCells;
 			sourceTree = "<group>";
 		};
 		37D54BFA2AF641E500A0DA18 = {
@@ -78,18 +82,84 @@
 		37D54C052AF641E500A0DA18 /* Setting iOS */ = {
 			isa = PBXGroup;
 			children = (
-				37D54C062AF641E500A0DA18 /* AppDelegate.swift */,
-				37D54C082AF641E500A0DA18 /* SceneDelegate.swift */,
-				37D54C1A2AF6443A00A0DA18 /* TableViewController.swift */,
-				37945D5E2AF7BBC400BDD522 /* Customize TableViews */,
-				37D54C212AF6717F00A0DA18 /* Models.swift */,
-				37945D5C2AF7AC4C00BDD522 /* DetailView.swift */,
+				37F1BF6C2B125CAD0058E47C /* Sources */,
+				37F1BF6D2B125CB70058E47C /* Resources */,
+			);
+			path = "Setting iOS";
+			sourceTree = "<group>";
+		};
+		37F1BF6C2B125CAD0058E47C /* Sources */ = {
+			isa = PBXGroup;
+			children = (
+				37F1BF6F2B125CD90058E47C /* App */,
+				37F1BF6E2B125CC30058E47C /* Scenes */,
+			);
+			path = Sources;
+			sourceTree = "<group>";
+		};
+		37F1BF6D2B125CB70058E47C /* Resources */ = {
+			isa = PBXGroup;
+			children = (
 				37D54C0F2AF641E600A0DA18 /* Assets.xcassets */,
 				37D54C142AF641E600A0DA18 /* Info.plist */,
 				37D54C0C2AF641E500A0DA18 /* Main.storyboard */,
 				37D54C112AF641E600A0DA18 /* LaunchScreen.storyboard */,
 			);
-			path = "Setting iOS";
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		37F1BF6E2B125CC30058E47C /* Scenes */ = {
+			isa = PBXGroup;
+			children = (
+				37F1BF702B125CF90058E47C /* Model */,
+				37F1BF712B125D020058E47C /* View */,
+				37F1BF722B125D080058E47C /* Controller */,
+			);
+			path = Scenes;
+			sourceTree = "<group>";
+		};
+		37F1BF6F2B125CD90058E47C /* App */ = {
+			isa = PBXGroup;
+			children = (
+				37D54C062AF641E500A0DA18 /* AppDelegate.swift */,
+				37D54C082AF641E500A0DA18 /* SceneDelegate.swift */,
+			);
+			path = App;
+			sourceTree = "<group>";
+		};
+		37F1BF702B125CF90058E47C /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				37D54C212AF6717F00A0DA18 /* Models.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		37F1BF712B125D020058E47C /* View */ = {
+			isa = PBXGroup;
+			children = (
+				37F1BF772B12717B0058E47C /* TableVIew */,
+				37945D5C2AF7AC4C00BDD522 /* DetailView.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		37F1BF722B125D080058E47C /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				37D54C1A2AF6443A00A0DA18 /* TableController.swift */,
+				37F1BF752B1265CE0058E47C /* DetailController.swift */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		37F1BF772B12717B0058E47C /* TableVIew */ = {
+			isa = PBXGroup;
+			children = (
+				37F1BF732B125FE70058E47C /* TableView.swift */,
+				37945D5E2AF7BBC400BDD522 /* CustomizeCells */,
+			);
+			path = TableVIew;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -172,10 +242,12 @@
 				37D54C202AF647E000A0DA18 /* CustomTableViewCell.swift in Sources */,
 				37945D5D2AF7AC4C00BDD522 /* DetailView.swift in Sources */,
 				37945D5B2AF7A6AC00BDD522 /* TableViewCellWithText.swift in Sources */,
+				37F1BF742B125FE70058E47C /* TableView.swift in Sources */,
 				37D54C072AF641E500A0DA18 /* AppDelegate.swift in Sources */,
 				37D54C092AF641E500A0DA18 /* SceneDelegate.swift in Sources */,
-				37D54C1B2AF6443A00A0DA18 /* TableViewController.swift in Sources */,
+				37D54C1B2AF6443A00A0DA18 /* TableController.swift in Sources */,
 				37D54C222AF6717F00A0DA18 /* Models.swift in Sources */,
+				37F1BF762B1265CE0058E47C /* DetailController.swift in Sources */,
 				37945D592AF79CB600BDD522 /* TableViewCellWithSwitch.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -252,7 +324,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -306,7 +378,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;
@@ -325,7 +397,7 @@
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = YT7499CZXL;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = "Setting iOS/Info.plist";
+				INFOPLIST_FILE = "Setting iOS/Resources/Info.plist";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
@@ -353,7 +425,7 @@
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = YT7499CZXL;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = "Setting iOS/Info.plist";
+				INFOPLIST_FILE = "Setting iOS/Resources/Info.plist";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
